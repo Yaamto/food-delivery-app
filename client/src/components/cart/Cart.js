@@ -25,10 +25,12 @@ export default function Cart({cart, removeFromCart, totalPrice, createOrder, ord
         
         <h1>Cart</h1>
         {cart.length === 0 ? "": ( cart.map((item, i) => {
+         
             return <div className='cart-item' ref={cartEnd} key={i}>
                 <img src={process.env.PUBLIC_URL + `/images/${item.name}.png`} alt="" width="50" height="50" />
                 <span>{item.name}</span>
                 <span>${item.price}</span>
+                
                 <button className='remove' onClick={() => removeFromCart(item._id)}>X</button>
                 
             </div>

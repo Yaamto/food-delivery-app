@@ -9,10 +9,10 @@ export default function Navbar({cart, setCart, setTotalPrice}) {
     const [admin, setAdmin] = useState(false)
   
     useEffect(() => {
-      async function getAuthAdmin() {
+      async function getAuth() {
           try {
   
-              const res = await fetch('http://localhost:3000/jwtid/admin', {
+              const res = await fetch('http://localhost:3000/jwtid', {
                   headers: {
                       'Content-Type': 'application/json'
                   },
@@ -28,11 +28,11 @@ export default function Navbar({cart, setCart, setTotalPrice}) {
               }
           }catch(err){
              setAdmin(false)
-            console.log(err)
+            
       }
     }
   
-      getAuthAdmin()
+      getAuth()
     }, [])
    
     const navigate = useNavigate()
@@ -78,20 +78,39 @@ export default function Navbar({cart, setCart, setTotalPrice}) {
        setUser(user)
         setUserId(userId)
     }, [])
+
+
+
+    const hideUl = () =>{
+      
+      document.getElementById("burger").checked = false
+     
+    }
+
+
+
+
+
   return (
     <>
     <div className="nav">
        <p className='logo'><NavLink exact to="/">FOODIES</NavLink> </p>
-       
+      
+       <input type="checkbox" name="burger" id="burger"/>
            <ul className='navList'>
-               <li><a href="#service">Service</a> </li>
-               <li><a href="#menu">Menu</a></li>
-               <li><a href="#">Contact</a></li>
+               <li onClick={hideUl}><a href="#service">Service</a> </li>
+               <li onClick={hideUl}><a href="#menu">Menu</a></li>
+               <li onClick={hideUl}><a href="#">Contact</a></li>
              {userId === null ? "" : (<li><NavLink exact to="/orders">My orders</NavLink></li>)}  
              {admin === true ? (<li><NavLink exact to="/admin/products">Admin</NavLink></li>): ""}
-            
+             {userId === null ? ( <button  className='logout' onClick={getLogin}>Login</button>): ( <button className='logout' onClick={(e) => handleLogout(e)}>Logout</button>)}
            </ul>
-      {userId === null ? ( <button onClick={getLogin}>Login</button>): ( <button onClick={(e) => handleLogout(e)}>Logout</button>)}
+           <label for="burger" className='burger'>
+        <div class="item-nav"></div>
+        <div class="item-nav"></div>
+        <div class="item-nav"></div>
+       </label>
+    
    
 
       

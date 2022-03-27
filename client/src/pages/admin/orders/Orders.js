@@ -116,6 +116,7 @@ export default function Orders() {
         <h1 className='title-order'>  <span className='span-color'>Old</span> Orders</h1>
           {allOrders.map((order) => {
             const date = new Date(order.createdAt)
+            
             if(order.status >=3){
               return <div className="single-order">
               <div className="order-header">

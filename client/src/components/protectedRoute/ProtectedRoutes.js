@@ -21,7 +21,7 @@ const ProtectedRoutes = ({children}) => {
             if (data.user._id) {
                 setIsAuth(true)
                 localStorage.setItem("userId", data.user._id )
-                
+                console.log(isAuth)
             } else {
                 setIsAuth(false)
                 
@@ -30,12 +30,12 @@ const ProtectedRoutes = ({children}) => {
             setIsAuth(false)
             console.log(err)
         }
-    
+        console.log(isAuth)
     }
 
     getAuth()
   }, [])
-
+  console.log(isAuth)
   return isAuth ? children : <Navigate to='/login' />
 
 }
