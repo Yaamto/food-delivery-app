@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+.orders-container {
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+}
+.single-order{
+    margin-left: 100px;
+    background: #3F3F3F;
+    border-radius: 20px;
+    padding:30px 30px 10px 30px;
+    margin: 20px;
+    height: auto;
+    width: 600px;
+}
+.single-order:hover{
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+
+.food-list {
+    margin-left: 50px;
+    list-style: none;
+    display: none;
+   
+}
+.span-color{
+    color: #FF5569;
+}
+.food-list li {
+    display: flex;
+    align-items: center;
+    
+}
+.food-list li span{
+    margin:10px
+}
+.show-food{
+    border:none;
+    border-radius: 5px;
+    padding:5px 10px;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    background-color: #FF5569;
+    border:solid 1px #FF5569;
+
+}
+
+.show-food:hover{
+    transition: 0.3s;
+   
+    background-color: transparent;
+}
+
+.show-hide {
+    display: block;
+    
+}
+.total-order-price{
+    font-size: 25px;
+}
+.status-order-current{
+    color: rgb(14, 204, 14);
+}
+.status-order-old{
+    color: rgb(201, 221, 18);
+}
+
+.title-order{
+    text-align: center;
+}
+.status{
+    color: white;
+    font-size: 20px;
+}
+
+.date-order{
+    color:#1a1a1a
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+body{
+    margin:0
+}
+
+.login-form{
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+
+    background-color: #3F3F3F;
+    border-radius: 40px;
+}
+.login-page{
+    height: 100vh;
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.login-form input {
+
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+}
+.login-form input:focus{
+    outline: none;
+}
+
+.login-form button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #FF5569;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 20px;
+}
+
+.login-form button:hover {
+cursor: pointer;
+}
+.login-form h1 {
+    color: white;
+    font-weight: 600;
+
+}
+.login-form p {
+    color: white;
+}
+
+.login-form p span{
+    color:#FF5569
+}
+.login-form p span:hover {
+    cursor: pointer;
+}

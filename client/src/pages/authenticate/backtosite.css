@@ -1,0 +1,19 @@
+.back-to-site{
+    border-radius: 40px;
+    padding:10px 20px;
+    border:none;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+    background-color: #FF5569;
+    color:white
+    
+    
+    
+}
+.back{
+  position: absolute;
+  left:50%;
+  top:15%;
+  transform: translate(-50%,-50%);
+   
+}

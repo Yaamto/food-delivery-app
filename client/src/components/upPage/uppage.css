@@ -1,0 +1,16 @@
+
+.uppage{
+    position: fixed;
+    color: white;
+    bottom: 20px;
+    
+    border-radius: 50%;
+    background-color: #FF5569;
+    height: 50px;
+    width: 50px;
+   display: flex;
+   left:100px;
+   justify-content: center;
+   align-items: center;
+
+}

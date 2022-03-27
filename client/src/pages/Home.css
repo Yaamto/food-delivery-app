@@ -1,0 +1,19 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #212121;
+    
+  
+}
+.container {
+    max-width: 1420px;
+    margin: auto;
+}
+
+button{
+    cursor: pointer;
+}
+*{
+    animation: popIn 0.5s;
+}

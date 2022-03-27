@@ -1,0 +1,93 @@
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+.modal-content{
+    width: 800px;
+    height:auto;
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+.header-modal{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin:0 10px;
+}
+.header-modal button{
+    border:solid 1px rgb(255, 82, 82);
+    background-color:rgb(255, 82, 82) ;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.header-modal button:hover{
+    background-color: transparent;
+    color: #3F3F3F;
+}
+.body-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.categories-modal{
+    display:flex;
+
+}
+.categories-modal input:checked + label{
+    background: #FF5569;
+   
+   
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 7px 29px 0px;
+
+  }
+.categories-modal input{
+    display: none;
+}
+
+.body-modal input {
+    padding:15px;
+    margin: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: #3F3F3F;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    width: 200px;
+    font-size: 15px;
+}
+.footer-modal{
+    display: flex;
+    justify-content: center;
+}
+.footer-modal button{
+    margin: 30px;
+    border:solid 1px #FF5569;
+    background-color: #FF5569;
+    color: white;
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-family: 'Titillium Web', sans-serif;
+    width: 100px;
+    transition: 0.3s;
+}
+.footer-modal button:hover{
+    background-color: transparent;
+    color: #3F3F3F;
+}

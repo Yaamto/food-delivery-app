@@ -1,0 +1,44 @@
+
+
+.all-food{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.all-food tr th{
+    font-size: 30px;
+    padding: 30px;
+    
+}
+.all-food tr td{
+    font-size: 20px;
+    padding: 15px;
+}
+
+table {
+    margin-top: 100px;
+    margin-left: 300px
+}
+td img{
+    padding: 5px;
+    transition: 0.3s;
+}
+td img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.add-product{
+    position: absolute;
+    top:5%;
+    left:25%;
+    border: none;
+    background-color:#FF5569 ;
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    border-radius: 40px;
+    
+}

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+
+
+.register-form{
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 550px;
+
+    background-color: #3F3F3F;
+    border-radius: 40px;
+}
+.register-page{
+    height: 100vh;
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.register-form input {
+
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+}
+.register-form input:focus{
+    outline: none;
+}
+
+.register-form button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #FF5569;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 20px;
+}
+
+.register-form button:hover {
+cursor: pointer;
+}
+.register-form h1 {
+    color: white;
+    font-weight: 600;
+
+}
+.register-form p {
+    color: white;
+}
+
+.register-form p span{
+    color:#FF5569
+}
+.register-form p span:hover {
+    cursor: pointer;
+}

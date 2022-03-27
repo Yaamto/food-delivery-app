@@ -1,0 +1,49 @@
+.sidebar{
+    height: 100vh;
+    position: fixed;
+    width: 300px;
+    background-color: #3F3F3F;
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    color:white
+}
+
+.back-site {
+    font-family: 'Titillium Web', sans-serif;
+    color: white;   
+    border: solid 1px #FF5569;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 23px;
+    border-radius: 40px;
+    transition: 0.3s;
+    color: white;
+    text-decoration: none;
+}
+.back-site:hover {
+    background-color:#FF5569 ;
+}
+
+.sidebar-items{
+    margin-top: 100px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-items a {
+    margin:40px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-align: center;
+
+}
+.sidebar-items a.active{
+    background-color: #FF5569;
+    padding: 10px 20px;
+    border-radius: 40px;
+}
+
