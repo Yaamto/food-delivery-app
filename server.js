@@ -8,6 +8,7 @@ const categoryRoutes = require("./routes/categoryRoutes")
 const adminRoutes = require("./routes/adminRoutes")
 const loggedRoutes = require("./routes/loggedRoutes")
 const publicRoutes = require("./routes/publicRoutes")
+const socket = require("socket.io")
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { requireAuth, checkUser, checkAdmin } = require('./middleware/auth');
@@ -52,3 +53,32 @@ app.use("/admin", adminRoutes)
 
 
 const server = app.listen(3000, () => console.log("serveur running on port 3000"));
+
+const io = socket(server, {
+  cors: {
+      origin:"http://localhost:3001",
+      credentials:true,
+  }
+})
+
+io.on("connection", (socket) => {
+  console.log("connected to socket.io")
+  
+  
+  socket.on('join-order', (userData) => {
+    socket.join(userData)
+    socket.emit("connected")
+  })
+
+  socket.on("send-status", (order) => {
+    
+    let orderID = order._id
+    console.log(order.status)
+    
+
+    if(orderID){
+      socket.in(order.customer_id).emit("recieve-status", order.status)
+    }
+  })
+
+})
