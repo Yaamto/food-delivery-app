@@ -1,11 +1,14 @@
 import React, {createContext, useState, useEffect} from 'react'
 import io from "socket.io-client"
+
 let socket 
 const host = process.env.REACT_APP_API_URL
+
 export const StatusContext = createContext()
 
 const StatusContextProvider = (props) => {
 
+    
     const [sock, setSock] = useState();
   
  

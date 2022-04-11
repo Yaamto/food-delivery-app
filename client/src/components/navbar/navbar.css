@@ -166,6 +166,19 @@
 .header-desc p {
     font-size: 25px;
 }
+
+.orders-container{
+    flex-direction: column;
+    padding-top: 150px;
+}
+.single-order{
+    width: auto!important;
+    
+}
+.food-list{
+    margin-left: 0px!important;
+    padding-left: 0px!important;
+}
 } 
 
 @media screen and (max-width: 968px) {

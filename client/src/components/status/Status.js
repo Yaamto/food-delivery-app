@@ -9,14 +9,12 @@ export default function Status({order, delivered, setDelivered}) {
  
     useEffect(() => {
         sock.on("recieve-status", (state) => {
-            // STATUS NE VEUX PAS S'afficher 
-            console.log(state)
             setStatus(state)
             setDelivered(delivered + 1)
             
            
         })
-    })
+    }, [])
 
 
  
