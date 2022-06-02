@@ -56,9 +56,10 @@ const server = app.listen(3000, () => console.log("serveur running on port 3000"
 
 const io = socket(server, {
   cors: {
-      origin:"http://localhost:3001",
+      origin:"*",
       credentials:true,
   }
+ 
 })
 
 io.on("connection", (socket) => {
@@ -77,7 +78,7 @@ io.on("connection", (socket) => {
     
 
     if(orderID){
-      socket.in(order.customer_id).emit("recieve-status", order.status)
+      socket.in(order.customer_id).emit("recieve-status", order)
     }
   })
 

@@ -12,19 +12,35 @@ export default function MyOrders() {
     const [myOrders, setMyOrders] = useState([])
     const [loading, setLoading] = useState(false)
     const statusTab = ["Waiting confirmation...", "cooking...", "On the way...", "Delivered"]
-    const [delivered, setDelivered] = useState(0)
+  
     const {sock} = useContext(StatusContext)
-    console.log(sock)
+    console.log(sock);
     //Permet de montrer/cacher les éléments de la commande (nourriture) lors du clique
     const showHideFood = (e, id) => {
         e.preventDefault()
         document.getElementById(id).classList.toggle("show-hide")
     }
-
     // pour status faire un composant a part avec des props
     // faire un useeffect dans ce composant pour mettre à jour le status
     // ou 
     
+    useEffect(() => {
+        if(!sock){
+            return
+        }
+        sock.on("recieve-status", (state) => {
+            setMyOrders((orders) => orders.map((order) => {
+                if(order._id === state._id){
+                    return state
+                }
+                return order
+            }) )
+           
+            
+           
+        })
+    }, [sock])
+
     
     useEffect(()=> {
         const id = localStorage.getItem("userId")
@@ -48,7 +64,7 @@ export default function MyOrders() {
         }
       getOrder()
       
-    },[delivered])
+    },[])
 
    
 
@@ -66,7 +82,7 @@ export default function MyOrders() {
                 const date = new Date(order.createdAt)
             if(order.status !==3){
                 return <div className='single-order'>
-                    <p className='status-order-current'><span className='status'>Status : </span> <Status order={order} delivered={delivered} setDelivered={setDelivered}/></p>
+                    <p className='status-order-current'><span className='status'>Status : </span> {statusTab[order.status]}</p>
                     <p className='date-order'>{date.toLocaleDateString("fr")}</p>
                     <p>Address : {order.address}</p>
                     <button className='show-food'  onClick={(e) => showHideFood(e, order._id)}>Show/hide food</button>

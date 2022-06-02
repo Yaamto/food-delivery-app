@@ -7,15 +7,7 @@ export default function Status({order, delivered, setDelivered}) {
 
     const {sock} = useContext(StatusContext)
  
-    useEffect(() => {
-        sock.on("recieve-status", (state) => {
-            setStatus(state)
-            setDelivered(delivered + 1)
-            
-           
-        })
-    }, [])
-
+  
 
  
 
