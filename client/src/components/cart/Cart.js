@@ -4,16 +4,30 @@ import "./cart.css"
 export default function Cart({cart, removeFromCart, totalPrice, createOrder, order}) {
 
 
-    
+    const [cartShow, setCartShow] = useState(false)
+    const [cartState, setCartState] = useState()
     const cartEnd = useRef()
     
-  
-    console.log(order)
+  // const 
     
 
   const scrollToBottom = () => {
     cartEnd.current?.scrollIntoView({ behavior: "smooth" })
   }
+
+  const handleHideShowCart = (e) => {
+    e.preventDefault()
+    cartState.classList.toggle("hidden-cart")
+    if(cartState.classList.contains("hidden-cart")){
+      setCartShow(true)
+    }else{
+      setCartShow(false)
+    }
+  }
+  useEffect(() => {
+    setCartState(document.querySelector(".cart"))
+    
+  }, []);
 
   useEffect(() => {
     scrollToBottom()
@@ -21,9 +35,12 @@ export default function Cart({cart, removeFromCart, totalPrice, createOrder, ord
 
   return (
       
+    <div className="all-cart">
+      <span className='hide-show-cart' onClick={(e) => handleHideShowCart(e)}>{cartShow ? ("︽") : ("︾")}</span>
+      <h2 className='cart-title'>Cart <span className='cart-digits'> {cart.length != 0 ? (cart.length) : ("")}</span></h2>
     <div className="cart" >
         
-        <h1>Cart</h1>
+        
         {cart.length === 0 ? "": ( cart.map((item, i) => {
          
             return <div className='cart-item' ref={cartEnd} key={i}>
@@ -38,6 +55,7 @@ export default function Cart({cart, removeFromCart, totalPrice, createOrder, ord
        
         <span className='total-price'>Total Price : ${totalPrice}</span>
         {totalPrice === 0 ? (<span>Add Something to cart !</span>) : <button className='order' onClick={() => createOrder()}>Order now </button>}
+    </div>
     </div>
   )
 }

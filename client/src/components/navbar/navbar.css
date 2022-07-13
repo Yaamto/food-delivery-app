@@ -263,6 +263,9 @@
     .total-price{
         font-size: 18px;
     }
+    .all-cart{
+        width: 190px!important;
+    }
 }
 
 
