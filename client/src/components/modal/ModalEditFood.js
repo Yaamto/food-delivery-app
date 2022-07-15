@@ -73,7 +73,7 @@ export default function ModalEditFood({showEdit, onClose, categories, singleFood
                       {categories.map((cat, index) => {
                           return <div className="single-category" key={index} >
                               <input type="radio" name="category" id={cat.name} value={cat._id} onChange={(e) => setCategory(e.target.value)} defaultChecked={singleFood.category.name ===cat.name} />
-                              <label htmlFor={cat.name} ><p >{cat.name}</p> <img src={process.env.PUBLIC_URL + `/images/${cat.name}.png`} alt="" /></label>
+                              <label htmlFor={cat.name} ><p >{cat.name}</p> <img src={process.env.PUBLIC_URL + `/image/${cat.name}.png`} alt="" /></label>
 
                           </div>
                       })}

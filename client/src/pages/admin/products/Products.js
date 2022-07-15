@@ -129,7 +129,7 @@ export default function Products() {
                           <td>${food.price}</td>
                           <td>{food.category.name}</td>
                           <td>Image</td>
-                          <td><img src={process.env.PUBLIC_URL + "/images/pencil.png"} alt="edit" height="35" width="35" onClick={() => {setShowEdit(true); setSingleFood(food)}}/> <img src={process.env.PUBLIC_URL + "/images/remove.png"} alt="remove" height="35" width="35" onClick={() => handleDelete(food._id, i)} /></td>
+                          <td><img src={process.env.PUBLIC_URL + "/image/pencil.png"} alt="edit" height="35" width="35" onClick={() => {setShowEdit(true); setSingleFood(food)}}/> <img src={process.env.PUBLIC_URL + "/image/remove.png"} alt="remove" height="35" width="35" onClick={() => handleDelete(food._id, i)} /></td>
                          
                       </tr>
                       

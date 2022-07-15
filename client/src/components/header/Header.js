@@ -9,7 +9,7 @@ export default function Header() {
         <p>A lots of choice and tasty food</p>
         <a href="#menu"><button>Get started</button></a>
         </div>
-        <img src={process.env.PUBLIC_URL + '/images/pngkey.png'} alt="" />
+        <img src={process.env.PUBLIC_URL + '/image/pngkey.png'} alt="" />
     </div>
   )
 }

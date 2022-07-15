@@ -36,7 +36,7 @@ export default function Cart({cart, removeFromCart, totalPrice, createOrder, ord
   return (
       
     <div className="all-cart">
-      <span className='hide-show-cart' onClick={(e) => handleHideShowCart(e)}> <img src={cartShow ? (process.env.PUBLIC_URL + "/images/chevron-en-haut.png") : (process.env.PUBLIC_URL + "/images/chevron-en-bas.png")} alt="" height={22}/> </span>
+      <span className='hide-show-cart' onClick={(e) => handleHideShowCart(e)}> <img src={cartShow ? (process.env.PUBLIC_URL + "/image/chevron-en-haut.png") : (process.env.PUBLIC_URL + "/image/chevron-en-bas.png")} alt="" height={22}/> </span>
       <h2 className='cart-title'>Cart {cart.length != 0 ? (<span> : <span className='cart-digits'>{cart.length}</span></span>) : ("")} </h2>
     <div className="cart" >
         
@@ -44,7 +44,7 @@ export default function Cart({cart, removeFromCart, totalPrice, createOrder, ord
         {cart.length === 0 ? "": ( cart.map((item, i) => {
          
             return <div className='cart-item' ref={cartEnd} key={i}>
-                <img src={process.env.PUBLIC_URL + `/images/${item.name}.png`} alt="" width="50" height="50" />
+                <img src={process.env.PUBLIC_URL + `/image/${item.name}.png`} alt="" width="50" height="50" />
                 <span>{item.name}</span>
                 <span>${item.price}</span>
                 

@@ -89,7 +89,7 @@ export default function MyOrders() {
                     <ul className='food-list' id={order._id}>
                     
                         {order.orderItems.map((item)=> {
-                           return <li> <img src={process.env.PUBLIC_URL + `/images/${item.name}.png`} alt="" width="40" height="40" /> <span>{item.name}</span> <span>${item.price}</span></li>
+                           return <li> <img src={process.env.PUBLIC_URL + `/image/${item.name}.png`} alt="" width="40" height="40" /> <span>{item.name}</span> <span>${item.price}</span></li>
                         })}
                     </ul>
                     <p className='total-order-price'>Total : <span className='span-color'>$</span>{order.total}</p>
@@ -112,7 +112,7 @@ export default function MyOrders() {
                     <ul className='food-list' id={order._id}>
                         
                         {order.orderItems.map((item)=> {
-                           return <li> <img src={process.env.PUBLIC_URL + `/images/${item.name}.png`} alt="" width="40" height="40" /> <span>{item.name}</span> <span>${item.price}</span></li>
+                           return <li> <img src={process.env.PUBLIC_URL + `/image/${item.name}.png`} alt="" width="40" height="40" /> <span>{item.name}</span> <span>${item.price}</span></li>
                         })}
                     </ul>
                     <p className='total-order-price'>Total : <span className='span-color'>$</span>{order.total}</p>

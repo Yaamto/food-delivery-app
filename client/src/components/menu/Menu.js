@@ -97,7 +97,7 @@ export default function Menu({cart, addCart}) {
           {category.map((cat, index) => {
               return <div className="single-category" key={index} onChange={() => getByCategory(cat._id)} >
                       <input type="radio" name="category" id={cat.name} value={cat._id}  defaultChecked={cat.name === "Burger"} />
-                      <label htmlFor={cat.name} ><p >{cat.name}</p> <img src={process.env.PUBLIC_URL + `/images/${cat.name}.png`} alt="" /></label>
+                      <label htmlFor={cat.name} ><p >{cat.name}</p> <img src={process.env.PUBLIC_URL + `/image/${cat.name}.png`} alt="" /></label>
                      
               </div>
           })}
@@ -107,7 +107,7 @@ export default function Menu({cart, addCart}) {
                               return <div className='test'>
                                   <div className='add' onClick={() =>addCart(food._id)}>+</div>
                                   <div className="single-food" >
-                                      <img src={process.env.PUBLIC_URL + `/images/${food.name}.png`} alt="" width="260" height="260" />
+                                      <img src={process.env.PUBLIC_URL + `/image/${food.name}.png`} alt="" width="260" height="260" />
                                       <span className='food-name'>{food.name}</span>
 
 
@@ -123,7 +123,7 @@ export default function Menu({cart, addCart}) {
                               return <div className='test'>
                                   <div className='add' onClick={() =>addCart(food._id)}>+</div>
                                   <div className="single-food" >
-                                      <img src={process.env.PUBLIC_URL + `/images/${food.name}.png`} alt="" width="260" height="260" />
+                                      <img src={process.env.PUBLIC_URL + `/image/${food.name}.png`} alt="" width="260" height="260" />
                                       <span className='food-name'>{food.name}</span>
 
 
