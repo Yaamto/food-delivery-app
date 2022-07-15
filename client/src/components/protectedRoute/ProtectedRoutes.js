@@ -10,7 +10,7 @@ const ProtectedRoutes = ({children}) => {
     async function getAuth() {
         try {
 
-            const res = await fetch('http://localhost:3000/jwtid', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}jwtid`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

@@ -14,7 +14,7 @@ const cors = require('cors');
 const { requireAuth, checkUser, checkAdmin } = require('./middleware/auth');
 const app = express()
 
-
+const PORT = process.env.PORT || 3000
 app.use(
     cors({
       origin: (origin, callback) => callback(null, true),
@@ -56,7 +56,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
-const server = app.listen(process.env.PORT, () => console.log(`server running on port ${process.env.PORT}`));
+const server = app.listen(PORT, () => console.log(`server running on port ${process.env.PORT}`));
 
 const io = socket(server, {
   cors: {
