@@ -51,8 +51,12 @@ app.use("/logged", loggedRoutes)
 app.use("/admin", adminRoutes)
 
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
+}
 
-const server = app.listen(3000, () => console.log("serveur running on port 3000"));
+
+const server = app.listen(process.env.PORT, () => console.log(`server running on port ${process.env.PORT}`));
 
 const io = socket(server, {
   cors: {
