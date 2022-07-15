@@ -22,7 +22,6 @@ const AdminProtectedRoutes = ({children}) => {
                 setIsAuth(true)
                 console.log(data)
                 localStorage.setItem("userId", data.user._id )
-                
             }else {
                 setIsAuth(false)
                 localStorage.removeItem("userId")

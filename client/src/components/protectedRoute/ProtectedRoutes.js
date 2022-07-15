@@ -24,7 +24,6 @@ const ProtectedRoutes = ({children}) => {
                 console.log(isAuth)
             } else {
                 setIsAuth(false)
-                
             }
         }catch(err){
             setIsAuth(false)
