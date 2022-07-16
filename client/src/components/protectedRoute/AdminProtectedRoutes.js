@@ -10,7 +10,7 @@ const AdminProtectedRoutes = ({children}) => {
     async function getAuthAdmin() {
         try {
 
-            const res = await fetch('http://localhost:3000/jwtid/admin', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}jwtid/admin`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
