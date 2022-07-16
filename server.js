@@ -29,13 +29,6 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-app.get("/jwtid", checkUser, (req, res) => {
-   return res.status(200).json({user : res.locals.user})
-   });
-
-   app.get("/jwtid/admin", checkAdmin, (req, res) => {
-    return res.status(200).json({user : res.locals.user})
-    });
 // app.get('/jwtid', requireAuth, (req, res) => {
 //   return res.status(200).json({user : res.locals.user})
 // });
