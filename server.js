@@ -8,11 +8,13 @@ const categoryRoutes = require("./routes/categoryRoutes")
 const adminRoutes = require("./routes/adminRoutes")
 const loggedRoutes = require("./routes/loggedRoutes")
 const publicRoutes = require("./routes/publicRoutes")
+const socket = require("socket.io")
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { requireAuth, checkUser, checkAdmin } = require('./middleware/auth');
 const app = express()
 
+const PORT = process.env.PORT || 3000
 
 app.use(
     cors({
@@ -50,5 +52,39 @@ app.use("/logged", loggedRoutes)
 app.use("/admin", adminRoutes)
 
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
+}
 
-const server = app.listen(3000, () => console.log("serveur running on port 3000"));
+
+const server = app.listen(PORT, () => console.log(`serveur running on port ${PORT}`));
+
+const io = socket(server, {
+  cors: {
+      origin:"*",
+      credentials:true,
+  }
+ 
+})
+
+io.on("connection", (socket) => {
+  console.log("connected to socket.io")
+  
+  
+  socket.on('join-order', (userData) => {
+    socket.join(userData)
+    socket.emit("connected")
+  })
+
+  socket.on("send-status", (order) => {
+    
+    let orderID = order._id
+    console.log(order.status)
+    
+
+    if(orderID){
+      socket.in(order.customer_id).emit("recieve-status", order)
+    }
+  })
+
+})

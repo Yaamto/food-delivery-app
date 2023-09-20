@@ -1,5 +1,6 @@
 import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
+import {StatusContext} from '../../../components/context/StatusContext'
 import SideBar from '../../../components/sidebar/SideBar'
 import LoadingSpinner from '../../../components/spinner/Spinner'
 import "./orders.css"
@@ -7,6 +8,9 @@ export default function Orders() {
   const [loading, setLoading] = useState(false)
   const [allOrders, setAllOrders] = useState([])
   const status = ["Waiting confirmation...", "cooking...", "On the way...", "Delivered"]
+
+  const {sock} = useContext(StatusContext)
+  console.log(sock)
 
   const showHideFood = (e, id) => {
     e.preventDefault()
@@ -56,7 +60,7 @@ export default function Orders() {
     })
     .then((res) => {             
       
-      
+      sock.emit('send-status', res.data)
       const newArr = [...allOrders]
       newArr.splice(index, 1, res.data)
       setAllOrders(newArr)

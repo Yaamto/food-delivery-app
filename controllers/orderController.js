@@ -16,10 +16,6 @@ module.exports.getAllOrder = async(req,res) => {
 }
 
 
-
-
-
-
 module.exports.addOrder = async(req, res) => {
 
     const {customer_id, customer, address, total,  status, orderItems} = req.body

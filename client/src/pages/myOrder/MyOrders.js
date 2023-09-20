@@ -1,22 +1,45 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import LoadingSpinner from '../../components/spinner/Spinner'
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import { StatusContext } from '../../components/context/StatusContext';
 
 import "./myorder.css"
+import Status from '../../components/status/Status';
 export default function MyOrders() {
     const [myOrders, setMyOrders] = useState([])
     const [loading, setLoading] = useState(false)
-    const status = ["Waiting confirmation...", "cooking...", "On the way...", "Delivered"]
-   
+    const statusTab = ["Waiting confirmation...", "cooking...", "On the way...", "Delivered"]
+  
+    const {sock} = useContext(StatusContext)
+    console.log(sock);
     //Permet de montrer/cacher les éléments de la commande (nourriture) lors du clique
     const showHideFood = (e, id) => {
         e.preventDefault()
         document.getElementById(id).classList.toggle("show-hide")
     }
-
+    // pour status faire un composant a part avec des props
+    // faire un useeffect dans ce composant pour mettre à jour le status
+    // ou 
+    
+    useEffect(() => {
+        if(!sock){
+            return
+        }
+        sock.on("recieve-status", (state) => {
+            setMyOrders((orders) => orders.map((order) => {
+                if(order._id === state._id){
+                    return state
+                }
+                return order
+            }) )
+           
+            
+           
+        })
+    }, [sock])
 
     
     useEffect(()=> {
@@ -40,12 +63,10 @@ export default function MyOrders() {
             })
         }
       getOrder()
-      const t = setInterval(getOrder, 15000);
-
-      return () => clearInterval(t); // clear
+      
     },[])
 
-  
+   
 
     if(loading === false) {
         return <LoadingSpinner />
@@ -61,7 +82,7 @@ export default function MyOrders() {
                 const date = new Date(order.createdAt)
             if(order.status !==3){
                 return <div className='single-order'>
-                    <p className='status-order-current'><span className='status'>Status :</span> {status[order.status]}</p>
+                    <p className='status-order-current'><span className='status'>Status : </span> {statusTab[order.status]}</p>
                     <p className='date-order'>{date.toLocaleDateString("fr")}</p>
                     <p>Address : {order.address}</p>
                     <button className='show-food'  onClick={(e) => showHideFood(e, order._id)}>Show/hide food</button>
@@ -84,7 +105,7 @@ export default function MyOrders() {
             const date = new Date(order.createdAt)
             if(order.status ===3){
                 return <div className='single-order'>
-                    <p className='status-order-old'><span className='status'>Status :</span>  {status[order.status]}</p>
+                    <p className='status-order-old'><span className='status'>Status :</span>  {statusTab[order.status]}</p>
                     <p className='date-order'>{date.toLocaleDateString("fr")}</p>
                     <p>Address : {order.address}</p>
                     <button  className='show-food' onClick={(e) => showHideFood(e, order._id)}>Show/hide food</button>

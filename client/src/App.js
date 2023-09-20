@@ -12,9 +12,12 @@ import Orders from "./pages/admin/orders/Orders";
 import ProtectedRoutes from "./components/protectedRoute/ProtectedRoutes";
 import Navbar from "./components/navbar/Navbar";
 import AdminProtectedRoutes from "./components/protectedRoute/AdminProtectedRoutes";
+import StatusContextProvider from "./components/context/StatusContext";
 
 function App() {
   return (
+    <StatusContextProvider>
+
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Home />}>
@@ -29,7 +32,7 @@ function App() {
                 <MyOrders />           
               </ProtectedRoutes>
             }
-        />
+            />
       {/* <Route path="/orders" element={<MyOrders />}>
       </Route> */}
  <Route path="/admin/products"
@@ -38,14 +41,14 @@ function App() {
                 <Products />          
               </AdminProtectedRoutes>
             }
-        />
+            />
          <Route path="/admin/orders"
             element={
               <AdminProtectedRoutes>
                 <Orders />          
               </AdminProtectedRoutes>
             }
-        />
+            />
       
       {/* <Route path="/admin/products" element={<Products />}>
       </Route> */}
@@ -53,6 +56,7 @@ function App() {
       </Route> */}
     </Routes>
   </BrowserRouter>
+      </StatusContextProvider>
   )
 }
 

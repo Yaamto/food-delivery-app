@@ -18,7 +18,6 @@ const OrderSchema = new Schema(
     },
     total: {
       type: Number,
-
     },
     status: {
       type: Number,
@@ -33,7 +32,6 @@ const OrderSchema = new Schema(
         },
         price: {
           type: Number,
-         
         },
         description: {
           type: String

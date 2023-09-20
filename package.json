@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "cd client && npm run build",
+    "install-client" : "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "client" : "cd client && npm start",
     "start": "nodemon server.js"
   },
   "author": "",
@@ -15,10 +19,13 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.7",
     "nodemon": "^2.0.15",
     "notyf": "^3.10.0",
-    "react-router-hash-link": "^2.4.3"
+    "react-router-hash-link": "^2.4.3",
+    "react-use-localstorage": "^3.5.3",
+    "socket.io": "^4.4.1"
   }
 }
